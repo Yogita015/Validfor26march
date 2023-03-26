@@ -1,0 +1,75 @@
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AllLeaveRequest from './AllLeaveRequest';
+
+import Navbar from './Navbar';
+import RequestLeave from './RequestLeave';
+import SetTimeTable from './SetTimeTable';
+
+import AllRequestForHod from './AllRequestForHod';
+import SeeTimeTable from './SeeTimeTable';
+import SetArrangement from './SetArrangement';
+import SetUser from './SetUser';
+
+
+import A from './A'
+import B from './B'
+import Home from './Home';
+import Profile from './Profile';
+import ShowAllUsers from './ShowAllUsers';
+import EditUsers from './EditUsers';
+import View from './View';
+import AddEdit from './AddEdit';
+import Boss from './Boss';
+import Boss2 from './Boss2';
+import Boss3 from './Boss3';
+
+
+export default function Severalpage(props) {
+
+
+    // const [isAuthenticated, setIsAuthenticated] = useState(false);
+    // const [userName, setUserName] = useState("");
+    // const [userType, setUserType] = useState("");
+
+    console.log("several page " + JSON.stringify(props))
+    
+
+    return (
+
+
+
+
+
+
+  <Router>
+            <Navbar updateUser={props} />
+            <Home updateUser={props} /> 
+            <Routes>
+                 
+                <Route exact path="/" element={<Home updateUser={props} />}></Route>
+                <Route exact path="/allUsers" element={<ShowAllUsers updateUser={props} />}></Route>
+                <Route exact path="/update/:id" element={<AddEdit updateUser={props} />}></Route>
+                <Route exact path="/view/:id" element={<View updateUser={props} />}></Route>
+                <Route exact path="/editusers" element={<EditUsers updateUser={props} />}></Route>
+                <Route exact path="/profile" element={<Profile updateUser={props} />}></Route>
+                <Route exact path="/requestleave" element={<RequestLeave updateUser={props} />} />
+                <Route exact path="/allleaverequest" element={<AllLeaveRequest updateUser={props} />} />
+                <Route exact path="/settimetable" element={<SetTimeTable updateUser={props} />} />
+                <Route exact path="/allrequestforhod" element={<AllRequestForHod updateUser={props} />} />
+                <Route exact path="/seetimetable" element={<SeeTimeTable updateUser={props} />} />
+                <Route exact path="/setarrangement" element={<SetArrangement updateUser={props} />} />
+                <Route exact path='/setUser' element={<SetUser updateUser={props} />}></Route>
+                {/*<Route exact path="/boss" element={<Boss updateUser={props} />}></Route>*/}
+
+
+            </Routes>
+    </Router>
+
+
+    
+
+
+
+    )
+}
